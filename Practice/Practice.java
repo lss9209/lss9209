@@ -13,18 +13,15 @@ class Practice {
 			if (Character.isDigit(n.charAt(i)) == false) {
 		 System.out.println("적절하지 못한 숫자입니다.");
 		 break;
-		}
+		}	
 	
-		
-		
-		if(!Character.isDigit(n.charAt(i)))  continue;
-			
-		 for(int j = 1; j <= Integer.parseInt(n); j++) {
+		if(i == (n.length()-1)) {
+			 for(int j = 1; j <= Integer.parseInt(n); j++) {
 			System.out.format(String.format("%%%ds\n", Integer.parseInt(n)), pattern);
 			pattern += "*";
-		 }
+			 }
 		}
-		
+		}
 		}while(true);	
 	}
 }
