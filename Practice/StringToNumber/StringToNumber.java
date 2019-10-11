@@ -1,48 +1,43 @@
 import java.util.Scanner;
 
 class StringToNumber {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String temp;
-        do {System.out.println("입력하시오 : ");
-            temp = scanner.next();
-            if(temp.equalsIgnoreCase("q")) break;
-            if(!isDigit(temp)) continue;
-            System.out.format("값은 %d\n ",parseInt(temp));
-            
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		String temp;
+		do {
+			System.out.println("숫자를 입력하시오 : ");
+			temp = scanner.next();
 
-        }while(true);
-    }
-    public static boolean isDigit(String str) {
-        if(str == null)
-            return false;
+			if(temp.equalsIgnoreCase("q")) break;
 
-        boolean isDigit = true;
+			if(isDigit(temp)) System.out.format("값은 : %d\n", parseInt(temp));
 
-        for(int i = 0; i < str.length(); i++) {
-            if(!Character.isDigit(str.charAt(i))) {
-                isDigit = false;
-                return isDigit;
-            }
-        }
-        return isDigit;
-    }
+		}while(true);
+	}
+	public static boolean isDigit(String str) {
+		if(str == null) return false;
 
-    public static Integer parseInt(String str) {
-        if(str == null)
-            return null;
+		boolean isDigit = true;
 
-        str.trim(); int number = 0;
-        
-        for(int i = 0; i <str.length(); i++) {
-            if(!Character.isDigit(str.charAt(i))) {
-                return null;
-        }
-    }
-        for(int j = 0; j <str.length(); j++) {
-            number = number*10 + (str.charAt(j) - '0');           
-        }
-        return number;        
-    }
+		for(int i = 0; i < str.length(); i++) {
+			char ch = str.charAt(i);
+			if(!Character.isDigit(ch)) {
+				isDigit = false;
+				return isDigit;
+			}
+		}
+		return isDigit;
+	}
+	public static Integer parseInt(String str) {
+		if(str == null) return null;
+		int number = 0;
+		for(int j = 0; j < str.length(); j++) {
+			char ch = str.charAt(j);
+			if(!Character.isDigit(ch)) 
+				return null;
+			number = (number * 10) + (ch - '0');
+		}
+		return number;
+	}
 }
 
