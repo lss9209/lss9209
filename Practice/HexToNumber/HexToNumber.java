@@ -27,6 +27,17 @@ class HexToNumber {
 		}while(true);
 	}
 	public static Integer HexToNumber(char ch) {
+		if(Character.isDigit(ch)) return ch - '0';
+		else if (ch == 'a' || ch =='A') return 10;
+		else if (ch == 'b' || ch =='B') return 11;
+		else if (ch == 'c' || ch =='C') return 12;
+		else if (ch == 'd' || ch =='D') return 13;
+		else if (ch == 'e' || ch =='E') return 14;
+		else if (ch == 'f' || ch =='F') return 15;
+		else return null;
+	}
+
+		/*
 		switch (ch) {
 		
 		case '0' : case '1' : case '2' : case '3' : case '4' : case '5' : case '6' : case '7' : case '8' : case '9' :
@@ -52,7 +63,7 @@ class HexToNumber {
 
 		default : return null;
 			 
-		}
-	}
+		}*/
+	
 }
 
